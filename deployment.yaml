@@ -18,7 +18,7 @@ spec:
       imagePullSecrets:
       - name: regcred
       containers:
-      - image: 777644549717.dkr.ecr.eu-west-1.amazonaws.com/simpleapp:latest
+      - image: 777644549717.dkr.ecr.eu-west-1.amazonaws.com/simpleapp:21
         name: flaskdemo
         resources: {}
 status: {}
