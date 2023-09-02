@@ -11,7 +11,9 @@ node {
                     withCredentials([usernamePassword(credentialsId: 'github', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
                         sh "git config user.email meir@cloudride.co.il"
                         sh "git config user.name meirjob"
+                        sh "cat deployment.yaml"
                         sh "sed -i 's+777644549717.dkr.ecr.us-east-1.amazonaws.com/simpleapp.*+777644549717.dkr.ecr.us-east-1.amazonaws.com/simpleapp:${IMAGE_TAG}+g' deployment.yaml"
+                        sh "cat deployment.yaml"
                         sh "git add ."
                         sh "git commit -m 'update image tag: ${IMAGE_TAG}'"
                         sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/kubernetesconfig.git HEAD:main"
