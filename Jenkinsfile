@@ -13,7 +13,7 @@ node {
                         sh "git config user.name meirjob"
                         sh "sed -i 's+777644549717.dkr.ecr.us-east-1.amazonaws.com/simpleapp.*+777644549717.dkr.ecr.us-east-1.amazonaws.com/simpleapp:${IMAGE_TAG}+g' deployment.yaml"
                         sh "git add ."
-                        sh "git commit -m 'update image tag: ${env.BUILD_NUMBER}'"
+                        sh "git commit -m 'update image tag: ${IMAGE_TAG}'"
                         sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/kubernetesconfig.git HEAD:main"
       }
     }
